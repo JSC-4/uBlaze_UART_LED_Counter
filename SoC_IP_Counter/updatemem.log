@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# updatemem v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Mon Dec 24 09:36:26 2018
+# Process ID: 11864
+# Current directory: c:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter
+# Command line: updatemem.exe -mode batch -source C:/Xilinx/SDK/2018.3/scripts/updatemem/main.tcl -notrace -tclargs -meminfo C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.mmi -data C:/Xilinx/SDK/2018.3/data/embeddedsw/lib/microblaze/mb_bootloop_le.elf -proc design_1_i/microblaze_0 -bit C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit -out C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper_hw_platform_0/download.bit -force
+# Log file: c:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/updatemem.log
+# Journal file: c:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter\updatemem.jou
+#-----------------------------------------------------------
+source C:/Xilinx/SDK/2018.3/scripts/updatemem/main.tcl -notrace
+ Loading bitfile C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper_hw_platform_0/design_1_wrapper.bit
+Loading data files...
+Updating memory content...
+Creating bitstream...
+Writing bitstream C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper_hw_platform_0/download.bit...
+  update_mem: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 524.430 ; gain = 440.910
+INFO: [Common 17-206] Exiting updatemem at Mon Dec 24 09:36:44 2018...

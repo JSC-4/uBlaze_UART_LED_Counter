@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Jan  5 10:48:44 2019
+# Process ID: 5060
+# Current directory: C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent11744 C:\Users\Jerome5\Desktop\SoC_LED_Counter\SoC_IP_Counter\SoC_IP_Counter.xpr
+# Log file: C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/vivado.log
+# Journal file: C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.xpr
+update_compile_order -fileset sources_1
+file copy -force C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.runs/impl_1/design_1_wrapper.sysdef C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper.hdf
+
+launch_sdk -workspace C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk -hwspec C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.sdk/design_1_wrapper.hdf
+open_bd_design {C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.srcs/sources_1/bd/design_1/design_1.bd}
+ipx::edit_ip_in_project -upgrade true -name myip_v1_0_project -directory C:/Users/Jerome5/Desktop/SoC_LED_Counter/SoC_IP_Counter/SoC_IP_Counter.tmp/myip_v1_0_project c:/Users/Jerome5/Desktop/SoC_LED_Counter/ip_repo/myip_1.0/component.xml
+update_compile_order -fileset sources_1
+close_project

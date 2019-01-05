@@ -17,9 +17,9 @@ Counter was created, whcih is then controlled by the UART core, running on the M
    Select the FPGA board used and finish building the project.
 2. To make a new IP, go to tool->Create and Package New IP. Pick "Create Axi4 Preipheral", change name of IP to LED_Controller
    (other details on the Peripheral Details window can be changed). On the last page, click "Edit IP" and click finish.
-3. Click "Add Sources"->"Add or Create Design Sources"->Add Files and add the VHDL file found in the additional comments. [LED_Counter](www.google.com).
+3. Click "Add Sources"->"Add or Create Design Sources"->Add Files and add the VHDL file found in the additional comments.
 4. In the LED_Controller_v1_0_S00_AXI_inst file, add a 16-bit output called LED (same as VHDL file) to the ports. Instansiate the
-   VHDL code, by adding the component to the Architecture and Port Map the code. m_clk to to S_AXI_ACLK, reset to S_AXI_ARESETN,
+   VHDL code, by adding the component to the Architecture and Port Map the VHDL code: m_clk to to S_AXI_ACLK, reset to S_AXI_ARESETN,
    sw to slv_reg0(1 downto 0) and LED to LED.
 5. In the LED_v1_0(arch_imp file, add the same LED signal to the ports at the top of the page. Add the LED signal to the component
    declaration and to the instantiation.
@@ -30,9 +30,8 @@ Counter was created, whcih is then controlled by the UART core, running on the M
    the Hello World Project (check additional comments). Add the new LED_Controller IP, right click the LED[15:0] port and click make
    external.
 8. Create a HDL Wrapper of the project and click Open Elaborated Design. In the top right drop down box, click floorplanning, change
-   the LED ports voltage to LVCMOS3V3 and map the FPGA LEDs to the correct ports.
-9. Run connection automation, validate the design, create a HDL wrapper (if not already created) and generate bitstream.
-10. Once bitstream is generated, go to file->export->export hardware and make sure INCLUDE BITSTREAM is checked.
+   the LED ports voltage to LVCMOS33 and map the FPGA LEDs to the correct ports. Remember to save this constraints file.
+9. Generate bitstream and go to file->export->export hardware and make sure INCLUDE BITSTREAM is checked.
 11. File->Launch SDK
 ```
 
@@ -60,12 +59,13 @@ Counter was created, whcih is then controlled by the UART core, running on the M
 
 - The previous project to create a MicroBlaze processor with a UART core is found [here](https://github.com/JSCBLOG/Microblaze_Hello_World)
 - To change the buad rate, this can be done by clicking on the on the USB UART ip core in the block design.
-- Link to Writing Basic Software Application [here](https://github.com/JSCBLOG/MicroBlaze_GPIO/blob/master/Writing%20Basic%20Software%20Application.pdf)
 - Ensure target language is set to VHDL (Settings->General->Target Language), otherwise when creating the IP, the template
   code will be in Verilog.
 - When connecting the custom IP to the S_AXI_ARESETN signal, make sure any VHDL files, use active low reset (i.e. 0) and not active
   high, otherwise the code will be stuck in a reset state.
-- If there is external IPs, these can be added to the project repository by clicking Settings->IP->Repository then adding the location.
+- If there any other external IPs, these can be added to the project repository by clicking Settings->IP->Repository then adding
+  the location.
+
 ## Issues and Bugs
 
 **DCP Error:**<br/>

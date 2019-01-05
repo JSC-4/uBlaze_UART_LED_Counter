@@ -15,14 +15,25 @@ Counter was created, whcih is then controlled by the UART core, running on the M
 ```
 1. Create a new project. As no RTL sources are not used "Do not specify sources at this time" can be checked.
    Select the FPGA board used and finish building the project.
-2. To make a new IP, go to tool->Create and Package New IP. Pick "Create Axi4 Preipheral", can change name of IP and other
-   details on the "Peripheral Details" window. On the last page, click "Edit IP" and click finish.
-3. Click "Add Sources" and add the VHDL file found here: [LED_Counter](www.google.com).
-3. Add an AXI GPIO core, double click on the ip block, add dip switches in GPIO. Do the same for another AXI 
-   GPIO core but add LEDs to GPIO. Run connection automation, validate the design, create a HDL wrapper 
-   (if not already created) and generate bitstream.
-4. Once bitstream is generated, go to file->export->export hardware and make sure INCLUDE BITSTREAM is checked.
-5. File->Launch SDK
+2. To make a new IP, go to tool->Create and Package New IP. Pick "Create Axi4 Preipheral", change name of IP to LED_Controller
+   (other details on the Peripheral Details window can be changed). On the last page, click "Edit IP" and click finish.
+3. Click "Add Sources"->"Add or Create Design Sources"->Add Files and add the VHDL file found in the additional comments. [LED_Counter](www.google.com).
+4. In the LED_Controller_v1_0_S00_AXI_inst file, add a 16-bit output called LED (same as VHDL file) to the ports. Instansiate the
+   VHDL code, by adding the component to the Architecture and Port Map the code. m_clk to to S_AXI_ACLK, reset to S_AXI_ARESETN,
+   sw to slv_reg0(1 downto 0) and LED to LED.
+5. In the LED_v1_0(arch_imp file, add the same LED signal to the ports at the top of the page. Add the LED signal to the component
+   declaration and to the instantiation.
+6. Click on the Package IP window and merge any changes in files without tick marks (File Groups, Customisation Parameter etc). After
+   this click on the Review and Package IP step->Edit Packaging Settings. In the After Packaging section, tick the first three boxes.
+   Lastly click on Package IP.
+7. Once back in the orignal project, create a clock design with a MicroBlaze Processor and UART core, which is the same as 
+   the Hello World Project (check additional comments). Add the new LED_Controller IP, right click the LED[15:0] port and click make
+   external.
+8. Create a HDL Wrapper of the project and click Open Elaborated Design. In the top right drop down box, click floorplanning, change
+   the LED ports voltage to LVCMOS3V3 and map the FPGA LEDs to the correct ports.
+9. Run connection automation, validate the design, create a HDL wrapper (if not already created) and generate bitstream.
+10. Once bitstream is generated, go to file->export->export hardware and make sure INCLUDE BITSTREAM is checked.
+11. File->Launch SDK
 ```
 
 ### SDK
@@ -52,11 +63,14 @@ Counter was created, whcih is then controlled by the UART core, running on the M
 - Link to Writing Basic Software Application [here](https://github.com/JSCBLOG/MicroBlaze_GPIO/blob/master/Writing%20Basic%20Software%20Application.pdf)
 - Ensure target language is set to VHDL (Settings->General->Target Language), otherwise when creating the IP, the template
   code will be in Verilog.
+- When connecting the custom IP to the S_AXI_ARESETN signal, make sure any VHDL files, use active low reset (i.e. 0) and not active
+  high, otherwise the code will be stuck in a reset state.
+- If there is external IPs, these can be added to the project repository by clicking Settings->IP->Repository then adding the location.
 ## Issues and Bugs
 
-**SDK crashing:**<br/>
-	Error: Vivado keeps crashing when trying to re-open exisiting IP,message: Plug-in org.eclipse.cdt.ui was unable to load 	            class org.eclipse.cdt.internal.ui.editor.CEditor. <br/>
-	Fix: Open SDK from windows NOT Vivado and open it to the project .sdk folder.
+**DCP Error:**<br/>
+	Error: DCP does not exist error, when trying to open Elaborated Design. <br/>
+	Fix: Check the rest of the errors, as mismatch in spellings or names can cause this.
 
 ## Built With
 

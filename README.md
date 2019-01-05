@@ -1,6 +1,6 @@
 # MicroBlaze LED Counter using UART with Nexys-4 DDR
 
-This project is about using the Nexys-4 DDR, to create a MicroBlaze SoC and communicating with the UART.A Custom IP of an LED
+This project is about using the Nexys-4 DDR, to create a MicroBlaze SoC and communicating with the UART. A Custom IP of an LED
 Counter was created, whcih is then controlled by the UART core, running on the MicroBlaze processor. 
 
 ### Prerequisites
@@ -17,7 +17,7 @@ Counter was created, whcih is then controlled by the UART core, running on the M
    Select the FPGA board used and finish building the project.
 2. To make a new IP, go to tool->Create and Package New IP. Pick "Create Axi4 Preipheral", can change name of IP and other
    details on the "Peripheral Details" window. On the last page, click "Edit IP" and click finish.
-3. Click "Add Sources" and add the VHDL file found here: [LED_Counter] (www.google.com).
+3. Click "Add Sources" and add the VHDL file found here: [LED_Counter](www.google.com).
 3. Add an AXI GPIO core, double click on the ip block, add dip switches in GPIO. Do the same for another AXI 
    GPIO core but add LEDs to GPIO. Run connection automation, validate the design, create a HDL wrapper 
    (if not already created) and generate bitstream.
